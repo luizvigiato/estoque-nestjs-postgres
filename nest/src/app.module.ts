@@ -8,7 +8,6 @@ import { FornecedorModule } from './fornecedor/fornecedor.module';
 @Module({
   imports: [
     ConfigModule.forRoot(),
-    FornecedorModule,
     TypeOrmModule.forRoot({
       type: process.env.TYPEORM_CONNECTION as any,
       host: process.env.TYPEORM_HOST,
@@ -18,6 +17,7 @@ import { FornecedorModule } from './fornecedor/fornecedor.module';
       database: process.env.TYPEORM_DATABASE,
       entities: [process.env.TYPEORM_ENTITIES],
     }),
+    FornecedorModule,
   ],
   controllers: [AppController],
   providers: [AppService],
