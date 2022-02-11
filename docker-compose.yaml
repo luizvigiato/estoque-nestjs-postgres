@@ -1,0 +1,26 @@
+version: '3'
+
+services:
+  nestjs:
+    build: .
+    entrypoint: .docker/entrypoint.sh
+    container_name: nestjs
+    volumes:
+        - "./nest/:/home/estoque/backend"
+    ports:
+        - 3001:3000
+    depends_on:
+        - pgsql
+
+  pgsql:
+    image: postgres:12.9
+    restart: always
+    container_name: pgsql
+    volumes:
+        - "./postgres:/var/lib/postgresql/data"
+    ports:
+        - 5433:5432
+    environment:
+        - POSTGRES_USER=luiz
+        - POSTGRES_PASSWORD=12345
+
