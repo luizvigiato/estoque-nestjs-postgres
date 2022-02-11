@@ -4,6 +4,6 @@ if [ ! -f ".env" ]; then
    cp .env.example .env
 fi
 
-npm install
+yarn install
 
-npm run start:dev
+yarn start:dev
