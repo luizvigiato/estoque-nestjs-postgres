@@ -1,4 +1,4 @@
-import {MigrationInterface, QueryRunner, Table} from "typeorm";
+import {MigrationInterface, QueryRunner, Table, TableForeignKey} from "typeorm";
 
 export class createNotaRecebidaTable1644624131596 implements MigrationInterface {
 
@@ -22,11 +22,10 @@ export class createNotaRecebidaTable1644624131596 implements MigrationInterface 
                     {
                         name: 'valort',
                         type: 'int',
-                    },
+                    }
                 ],
-            }), true
+            }),
         );
-
     }
 
     public async down(queryRunner: QueryRunner): Promise<void> {
